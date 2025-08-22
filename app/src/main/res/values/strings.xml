@@ -47,6 +47,7 @@
     <string name="reset_password">Reset Password</string>
     <string name="write_message">Write message</string>
     <string name="my_page">My Page</string>
+    <string name="log_out">Log out</string>
     <string-array name="pay_method_array">
         <item>Cash</item>
         <item>Credit Card</item>

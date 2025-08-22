@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.orderfood.R
+import com.example.orderfood.Utils.Utils
 import com.example.orderfood.adapter.RvMessageAdapter
 import com.example.testchatbot.ChatViewModel
 
@@ -34,7 +35,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat){
             }else{
             chatViewModel.sendQuestion(message) {
                 adapter.notifyDataSetChanged()
-                rvMessage.scrollToPosition(chatViewModel.messageList.size - 1)
+                rvMessage.scrollToPosition(Utils.messageList.size - 1)
             }
             }
             edtMessage.setText("")
@@ -44,7 +45,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat){
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setRecycleViewAdapter() {
-        adapter = RvMessageAdapter(chatViewModel.messageList)
+        adapter = RvMessageAdapter(Utils.messageList)
         adapter.notifyDataSetChanged()
         rvMessage.adapter = adapter
         rvMessage.layoutManager = LinearLayoutManager(this.context)

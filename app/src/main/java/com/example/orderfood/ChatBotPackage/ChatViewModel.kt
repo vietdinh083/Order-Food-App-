@@ -2,6 +2,7 @@ package com.example.testchatbot
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.orderfood.Utils.Utils
 import com.example.orderfood.model.MessageModel
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.content
@@ -15,7 +16,9 @@ class ChatViewModel : ViewModel() {
    val mDatabaseReference = mDatabase.getReference("food")
     init {
         // say Hello when user use chat bot
-        messageList.add(MessageModel("Hello, how can I help you today?", "model"))
+        if (Utils.messageList.isEmpty()) {
+            Utils.messageList.add(MessageModel("Hello, how can I help you today?", "model"))
+        }
     }
 
     private val generativeModel = GenerativeModel(
@@ -45,8 +48,8 @@ class ChatViewModel : ViewModel() {
 
     fun sendQuestion(question: String, onResult: () -> Unit) {
         // Add user question
-        messageList.add(MessageModel(question, "user"))
-        messageList.add(MessageModel("Typing...", "model"))
+        Utils.messageList.add(MessageModel(question, "user"))
+        Utils.messageList.add(MessageModel("Typing...", "model"))
         onResult()
 
         // Load data from Firebase before sending to Gemini
@@ -54,7 +57,7 @@ class ChatViewModel : ViewModel() {
             viewModelScope.launch {
                 try {
                     val chat = generativeModel.startChat(
-                        history = messageList.map {
+                        history = Utils.messageList.map {
                             content(it.role) { text(it.message) }
                         }
                     )
@@ -72,16 +75,16 @@ You can provide recommendations to customers about the nutritional content of th
 
                     val respond = chat.sendMessage(prompt)
                     // replace "*" && "**" to ""
-                    val cleanText = respond.text.toString().replace("**" , "").replace("*","")
+                    val cleanText = respond.text.toString().replace("**", "").replace("*", "")
 
                     // Replace "Typing..." with real response
-                    messageList.removeAt(messageList.size - 1)
-                    messageList.add(MessageModel(cleanText, "model"))
+                    Utils.messageList.removeAt(Utils.messageList.size - 1)
+                    Utils.messageList.add(MessageModel(cleanText, "model"))
                     onResult()
 
-                }catch (e: Exception){
-                    messageList.removeAt(messageList.size - 1)
-                    messageList.add(MessageModel("Error: ${e.message.toString()}", "model"))
+                } catch (e: Exception) {
+                    Utils.messageList.removeAt(Utils.messageList.size - 1)
+                    Utils.messageList.add(MessageModel("Error: ${e.message.toString()}", "model"))
                     onResult()
 
                 }

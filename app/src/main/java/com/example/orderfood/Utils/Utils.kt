@@ -1,6 +1,7 @@
 package com.example.orderfood.Utils
 
 import com.example.orderfood.model.CartModel
+import com.example.orderfood.model.MessageModel
 import com.example.orderfood.model.UserModel
 
 object Utils {
@@ -9,4 +10,6 @@ object Utils {
         listCart.add(cartModel)
     }
     var current_User = UserModel("","","")
+    val messageList = mutableListOf<MessageModel>()
+
 }
