@@ -49,9 +49,8 @@ class LoginActivity : AppCompatActivity() {
             btnLogin.isEnabled = false
             Handler(Looper.getMainLooper()).postDelayed({
                 btnLogin.isEnabled = true
-                progressBar.visibility = View.GONE
+                progressBar.visibility = View.GONE  // Ẩn ProgressBar sau 3 giây
             }, 3000)
-
         }
         btnRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
