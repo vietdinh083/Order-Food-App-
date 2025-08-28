@@ -2,12 +2,10 @@ package com.example.orderfood.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.orderfood.R
@@ -49,6 +47,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat){
         adapter.notifyDataSetChanged()
         rvMessage.adapter = adapter
         rvMessage.layoutManager = LinearLayoutManager(this.context)
+
     }
 
     private fun inItId(view: View) {

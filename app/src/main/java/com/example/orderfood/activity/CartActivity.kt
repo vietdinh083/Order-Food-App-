@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.orderfood.R
@@ -27,6 +28,7 @@ class CartActivity : AppCompatActivity() {
     private lateinit var txtTotal: TextView
     private lateinit var btnGoToOrder: Button
     private lateinit var adapter: RvCartAdapter
+    private lateinit var toolbar: Toolbar
 
 
     // firebase database
@@ -140,12 +142,20 @@ class CartActivity : AppCompatActivity() {
         txtTotal.text = "¥$sum"
     }
 
+    @SuppressLint("RestrictedApi")
     private fun inItId() {
         recyclerViewCart = findViewById(R.id.recyclerViewCart)
         recyclerViewCart.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         txtTotal = findViewById(R.id.txtTotal)
         btnGoToOrder = findViewById(R.id.btnGoToOrder)
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
+        toolbar.setNavigationIcon(R.drawable.ic_back)
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
 
     }
 

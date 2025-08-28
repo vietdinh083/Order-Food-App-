@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -37,6 +38,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var txtPlus: TextView
     private lateinit var txtMinus: TextView
     private lateinit var imgCart: ImageView
+    private lateinit var toolbar: Toolbar
 
     //alert dailog
     private lateinit var dailog: AlertDialog
@@ -222,6 +224,7 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("RestrictedApi")
     private fun inItId() {
         imgFood = findViewById(R.id.imgFood)
         txtNameFood = findViewById(R.id.txtNameFood)
@@ -235,5 +238,13 @@ class DetailActivity : AppCompatActivity() {
         txtMinus = findViewById(R.id.txtMinus)
         mRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        toolbar = findViewById(R.id.toolbar)
+        //set toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
+        toolbar.setNavigationIcon(R.drawable.ic_back)
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 }

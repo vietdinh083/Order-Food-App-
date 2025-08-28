@@ -1,10 +1,12 @@
 package com.example.orderfood.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.orderfood.R
@@ -22,6 +24,7 @@ class RiceActivity : AppCompatActivity() {
     private lateinit var mDatabaseReference: DatabaseReference
     private lateinit var mRecycleView: RecyclerView
     private lateinit var imgCart: ImageView
+    private lateinit var toolbar: Toolbar
     //reuse RecommendFood as RiceModel
     var mListOfRice = mutableListOf<FoodModel>()
 
@@ -41,10 +44,18 @@ class RiceActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("RestrictedApi")
     private fun inItId() {
         imgCart = findViewById(R.id.imgCart)
         mRecycleView = findViewById(R.id.recyclerView)
         mRecycleView.layoutManager = GridLayoutManager(this, 2)
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
+        toolbar.setNavigationIcon(R.drawable.ic_back)
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     private fun getDataFromFirebase() {

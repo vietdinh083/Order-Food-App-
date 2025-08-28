@@ -15,6 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.orderfood.R
 import com.example.orderfood.Utils.Utils
 import com.example.orderfood.model.OrderModel
@@ -32,6 +33,7 @@ class OrderActivity : AppCompatActivity() {
     private lateinit var btnOrder: Button
     private lateinit var progressBar : ProgressBar
     private lateinit var txtTotal: TextView
+    private lateinit var toolbar: Toolbar
 
 
     // database
@@ -148,6 +150,7 @@ class OrderActivity : AppCompatActivity() {
     }
 
 
+    @SuppressLint("RestrictedApi")
     private fun inItId() {
         txtTotal = findViewById(R.id.txtTotal)
         edtFullName = findViewById(R.id.edtFullName)
@@ -157,6 +160,13 @@ class OrderActivity : AppCompatActivity() {
         btnOrder = findViewById(R.id.btnOrder)
         spinnerPayMethod = findViewById(R.id.spinnerPayMethod)
         progressBar = findViewById(R.id.progressBar)
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
+        toolbar.setNavigationIcon(R.drawable.ic_back)
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
 
     }
 

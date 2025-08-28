@@ -77,6 +77,7 @@
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingBottom="80dp"
             android:layout_below="@+id/layoutProfile">
 
             <LinearLayout
@@ -85,10 +86,9 @@
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
+                    android:id="@+id/recyclerViewListActivityMyPage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
+                    android:layout_height="match_parent" />
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnLogOut"
                     android:layout_width="150dp"
@@ -99,8 +99,8 @@
                     android:background="@drawable/custom_button"
                     android:text="@string/log_out"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
 
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
@@ -113,6 +113,7 @@
             android:layout_centerInParent="true"
             android:elevation="10dp"
             android:layout_height="wrap_content"/>
+
 
     </RelativeLayout>
 

@@ -19,6 +19,7 @@ import com.example.orderfood.Utils.Utils
 import com.example.orderfood.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import io.paperdb.Paper
+import java.security.MessageDigest
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var edtEmail: EditText
@@ -60,7 +61,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-
     private fun loginUserAccount() {
         val email = edtEmail.text.toString()
         val password = edtPassword.text.toString()
