@@ -70,15 +70,15 @@ class OrderActivity : AppCompatActivity() {
     private fun btnOrderClickEvent() {
         btnOrder.setOnClickListener {
             if (edtFullName.text.isEmpty()) {
-                edtFullName.error = "Please enter your full name"
+                edtFullName.error = R.string.error_fullname.toString()
                 return@setOnClickListener
             }
             if (edtPhoneNumber.text.isEmpty()) {
-                edtPhoneNumber.error = "Please enter your phone number"
+                edtPhoneNumber.error = R.string.error_phone.toString()
                 return@setOnClickListener
             }
             if (edtAddress.text.isEmpty()) {
-                edtAddress.error = "Please enter your address"
+                edtAddress.error = R.string.error_address.toString()
                 return@setOnClickListener
             }
             val fullName = edtFullName.text.toString()
