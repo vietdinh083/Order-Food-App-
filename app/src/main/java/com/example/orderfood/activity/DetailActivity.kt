@@ -95,8 +95,9 @@ class DetailActivity : AppCompatActivity() {
                     // add to room base
                     else {
                         AppDatabase.getInstance(this).favoriteDao().insertFavorite(favoriteModel)
+                        Toast.makeText(this, "Save to favorite successfully", Toast.LENGTH_SHORT).show()
                     }
-                    Toast.makeText(this, "Save to favorite successfully", Toast.LENGTH_SHORT).show()
+
                     dialog.dismiss()
                 }
                 .setNegativeButton("No") { dialog, which ->
