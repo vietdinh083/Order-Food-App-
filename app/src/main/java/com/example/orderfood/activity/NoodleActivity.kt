@@ -79,7 +79,6 @@ class NoodleActivity : AppCompatActivity() {
                             i.putExtra("description", mListOfNoodle[position].description)
                             i.putExtra("price", mListOfNoodle[position].price)
                             i.putExtra("image", mListOfNoodle[position].image)
-                            i.putExtra("type", mListOfNoodle[position].type)
                             startActivity(i)
                         }
 

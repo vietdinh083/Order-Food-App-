@@ -6,10 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import com.bumptech.glide.Glide
 import androidx.recyclerview.widget.RecyclerView
-
+import com.bumptech.glide.Glide
 import com.example.orderfood.R
 import com.example.orderfood.model.FoodModel
 
@@ -31,7 +29,6 @@ class RvFoodAdapter(private val foodModelList: List<FoodModel>, val OnItemClickL
             val txtNameFood = findViewById<TextView>(R.id.txtNameFood)
             val txtPrice = findViewById<TextView>(R.id.txtPrice)
             val imgFood = findViewById<ImageView>(R.id.imgFood)
-            val imgFavorite = findViewById<ImageView>(R.id.imgFavorite)
 
             txtNameFood.text = foodModelList[position].name
             txtPrice.text = "¥"+foodModelList[position].price.toString()
@@ -41,18 +38,6 @@ class RvFoodAdapter(private val foodModelList: List<FoodModel>, val OnItemClickL
                 .error(R.drawable.ic_launcher_foreground) // Hình ảnh lỗi khi tải thất bại
                 .into(imgFood) // ImageView để hiển thị hình ảnh
 
-            var isFavorite = false
-
-            imgFavorite.setOnClickListener {
-                if (isFavorite) {
-                    imgFavorite.setImageResource(R.drawable.ic_favorite_border)
-
-                } else {
-                    imgFavorite.setImageResource(R.drawable.ic_favorite_full)
-
-                }
-                isFavorite = !isFavorite
-            }
         }
 
         holder.itemView.setOnClickListener {

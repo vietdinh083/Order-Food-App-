@@ -55,6 +55,7 @@
     <string name="error_fullname">Please enter your full name</string>
     <string name="error_phone">Invalid phone number</string>
     <string name="error_address">Please enter your address</string>
+    <string name="quantity">Quantity</string>
 
     <string-array name="pay_method_array">
         <item>Cash</item>

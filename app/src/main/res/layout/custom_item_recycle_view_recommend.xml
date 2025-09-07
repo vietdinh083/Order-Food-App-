@@ -80,14 +80,14 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <ImageView
+           <!-- <ImageView
                 android:id="@+id/imgFavorite"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_favorite_border"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:tint="@color/orange" />
+                app:tint="@color/orange" />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

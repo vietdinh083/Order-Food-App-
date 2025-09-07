@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.DetailActivity">
@@ -15,9 +16,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -25,7 +28,8 @@
                 android:background="@color/orange"
                 android:theme="?attr/actionBarTheme"
                 app:title="Detail"
-                app:titleTextColor="#ffff"/>
+                app:titleTextColor="#ffff" />
+
             <ImageView
                 android:id="@+id/imgCart"
                 android:layout_width="35sp"
@@ -33,11 +37,12 @@
                 android:src="@drawable/ic_cart"
                 android:layout_marginRight="10dp"
                 android:layout_centerInParent="true"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true" />
 
         </RelativeLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
@@ -92,18 +97,18 @@
                     android:text="@string/description"
                     android:textSize="18dp" />
 
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtDescription"
-                   >
+                    android:layout_below="@+id/txtDescription">
 
                     <TextView
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10sp"
-                        android:text="Quantity"
+                        android:text="@string/quantity"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -122,6 +127,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/textView"
                         app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/txtQuantity"
                         android:layout_width="28dp"
@@ -134,6 +140,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/txtMinus"
                         app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/txtPlus"
                         android:layout_width="28dp"
@@ -146,6 +153,16 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/txtQuantity"
                         app:layout_constraintTop_toTopOf="parent" />
+                    <ImageButton
+                        android:id="@+id/btnSaveToFavorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@drawable/ic_bookmark"
+                        android:background="@drawable/ic_bookmark"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -167,6 +184,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:layout_marginTop="10dp" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAddToCart"
                 android:layout_width="match_parent"
@@ -175,14 +193,10 @@
                 android:background="@drawable/custom_button"
                 android:text="@string/add_to_cart"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                 />
+                android:textSize="20sp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

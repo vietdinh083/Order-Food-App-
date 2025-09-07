@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.orderfood.R
 import com.example.orderfood.Utils.Utils
 import com.example.orderfood.activity.ChangePasswordActivity
+import com.example.orderfood.activity.FavoriteActivity
 import com.example.orderfood.activity.LoginActivity
 import com.example.orderfood.adapter.RvItemClick
 import com.example.orderfood.adapter.RvListActivityMyPage
@@ -54,8 +55,8 @@ class MyPageFragment : Fragment(R.layout.fragment_my_page) {
                 when(position){
                     //example
                     0 -> startActivity(Intent(requireContext(), ChangePasswordActivity::class.java))
-                   /* 1 -> startActivity(Intent(requireContext(),LoginActivity::class.java))
-                    2 -> startActivity(Intent(requireContext(),LoginActivity::class.java))*/
+                    1 -> startActivity(Intent(requireContext(),FavoriteActivity::class.java))
+                    //2 -> startActivity(Intent(requireContext(),LoginActivity::class.java))
                     else -> true
                 }
             }

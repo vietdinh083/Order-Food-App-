@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -19,7 +20,9 @@ import com.example.orderfood.R
 import com.example.orderfood.Utils.Utils
 import com.example.orderfood.adapter.RvItemClick
 import com.example.orderfood.adapter.rvRecommendFoodAdapter
+import com.example.orderfood.database.AppDatabase
 import com.example.orderfood.model.CartModel
+import com.example.orderfood.model.FavoriteModel
 import com.example.orderfood.model.FoodModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -39,6 +42,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var txtMinus: TextView
     private lateinit var imgCart: ImageView
     private lateinit var toolbar: Toolbar
+    private lateinit var btnSaveToFavorite: ImageButton
 
     //alert dailog
     private lateinit var dailog: AlertDialog
@@ -65,8 +69,44 @@ class DetailActivity : AppCompatActivity() {
         txtPlusAndMinusEventClick()
         btnAddToCartEventClick()
         btnCartEventClick()
+        btnSaveToFavoriteEventClick()
 
 
+
+    }
+
+    private fun btnSaveToFavoriteEventClick() {
+        btnSaveToFavorite.setOnClickListener {
+            val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+            builder
+                .setTitle("Confirm")
+                .setMessage("Do you want to save to favorite?")
+                .setPositiveButton("Yes") { dialog, which ->
+
+                    val favoriteModel = FavoriteModel(Utils.current_User.id,mDescription,mImage,
+                        mName,mPrice)
+
+                    if (AppDatabase.getInstance(this).favoriteDao().exists(Utils.current_User.id,
+                            mName.toString()
+                        ) != 0){
+                        Toast.makeText(this, "Existed in your favorite", Toast.LENGTH_SHORT).show()
+
+                    }
+                    // add to room base
+                    else {
+                        AppDatabase.getInstance(this).favoriteDao().insertFavorite(favoriteModel)
+                    }
+                    Toast.makeText(this, "Save to favorite successfully", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }
+                .setNegativeButton("No") { dialog, which ->
+                    dialog.dismiss()
+                }
+
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+        }
     }
 
     private fun btnCartEventClick() {
@@ -227,6 +267,7 @@ class DetailActivity : AppCompatActivity() {
     @SuppressLint("RestrictedApi")
     private fun inItId() {
         imgFood = findViewById(R.id.imgFood)
+        btnSaveToFavorite = findViewById(R.id.btnSaveToFavorite)
         txtNameFood = findViewById(R.id.txtNameFood)
         txtPrice = findViewById(R.id.txtPrice)
         txtDescription = findViewById(R.id.txtDescription)

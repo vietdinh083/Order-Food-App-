@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
-
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -15,7 +15,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -73,7 +72,13 @@ dependencies {
 
     //hdodenhof
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+    //room database
+    val room_version = "2.7.2"
 
+    implementation("androidx.room:room-runtime:$room_version")
 
+    // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
+    // See Add the KSP plugin to your project
+    ksp("androidx.room:room-compiler:$room_version")
 
 }
