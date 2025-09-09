@@ -16,7 +16,7 @@ import com.example.orderfood.database.AppDatabase
 import com.example.orderfood.model.FavoriteModel
 
 
-class RvFavoriteAdapter(private var listFavorite : MutableList<FavoriteModel>) : RecyclerView.Adapter<RvFavoriteAdapter.ViewHolder>() {
+class RvFavoriteAdapter(private var listFavorite : MutableList<FavoriteModel> , private var OnClickListenter : RvItemClick) : RecyclerView.Adapter<RvFavoriteAdapter.ViewHolder>() {
     inner class ViewHolder(itemView : View) :RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -66,6 +66,9 @@ class RvFavoriteAdapter(private var listFavorite : MutableList<FavoriteModel>) :
             val dialog: AlertDialog = builder.create()
             dialog.show()
 
+        }
+        holder.itemView.setOnClickListener {
+            OnClickListenter.onItemClick(position)
         }
     }
     }
