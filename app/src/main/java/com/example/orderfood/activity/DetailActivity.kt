@@ -51,12 +51,12 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var mDatabase: FirebaseDatabase
     private lateinit var mDatabaseReference: DatabaseReference
     var mListOfFoodModel = mutableListOf<FoodModel>()
-    var mQuantity = 0
+    private var mQuantity = 0
 
-    var mImage: String? = null
-    var mPrice: Int? = null
-    var mName: String? = null
-    var mDescription: String? = null
+    private var mImage: String? = null
+    private var mPrice: Int? = null
+    private var mName: String? = null
+    private var mDescription: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

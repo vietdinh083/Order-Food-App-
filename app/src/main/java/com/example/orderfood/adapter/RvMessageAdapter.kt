@@ -30,6 +30,7 @@ class RvMessageAdapter ( var messageList : MutableList<MessageModel>): RecyclerV
                     txtBotMessage.visibility = View.GONE
                     txtUserMessage.visibility = View.VISIBLE
                     txtUserMessage.text = message.message
+
                 }
                 else{
                     txtUserMessage.visibility = View.GONE

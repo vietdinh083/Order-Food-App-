@@ -17,7 +17,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat){
     private  lateinit var rvMessage : RecyclerView
     private lateinit var edtMessage :EditText
     private lateinit var  btnSend : ImageButton
-    val chatViewModel : ChatViewModel = ChatViewModel()
+    private val chatViewModel : ChatViewModel = ChatViewModel()
     private lateinit var adapter: RvMessageAdapter
     @SuppressLint("NotifyDataSetChanged", "SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,8 +33,9 @@ class ChatFragment : Fragment(R.layout.fragment_chat){
             }else{
             chatViewModel.sendQuestion(message) {
                 adapter.notifyDataSetChanged()
-                rvMessage.scrollToPosition(Utils.messageList.size - 1)
+                rvMessage.layoutManager?.scrollToPosition(Utils.messageList.size - 1)
             }
+
             }
             edtMessage.setText("")
         }
