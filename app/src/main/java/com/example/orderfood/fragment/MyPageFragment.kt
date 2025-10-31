@@ -42,7 +42,7 @@ class MyPageFragment : Fragment(R.layout.fragment_my_page) {
 
     private lateinit var progressBar: ProgressBar
     private val listActivity: MutableList<String> =
-        mutableListOf("Change Password", "My Favorite", "Setting")
+        mutableListOf("Change Password", "My Favorite", "Contact")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
