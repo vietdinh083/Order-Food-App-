@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.orderfood.R
 import com.example.orderfood.Utils.Utils
 import com.example.orderfood.adapter.RvMessageAdapter
-import com.example.testchatbot.ChatViewModel
+import com.example.orderfood.ChatBotPackage.ChatViewModel
 
 class ChatFragment : Fragment(R.layout.fragment_chat){
     private  lateinit var rvMessage : RecyclerView
