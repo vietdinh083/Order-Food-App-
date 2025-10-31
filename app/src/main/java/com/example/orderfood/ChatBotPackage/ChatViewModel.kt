@@ -2,6 +2,7 @@ package com.example.testchatbot
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.orderfood.ChatBotPackage.BuildConfig
 import com.example.orderfood.Utils.Utils
 import com.example.orderfood.model.MessageModel
 import com.google.ai.client.generativeai.GenerativeModel
