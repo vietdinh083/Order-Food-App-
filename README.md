@@ -31,7 +31,7 @@ Kotlin と Firebase を使用して開発されており、**リアルタイム�
 | 認証      | Firebase Authentication                      |
 | ストレージ   | Firebase Storage                             |
 | AI連携    | Google Gemini API                            |
-| アーキテクチャ | MVVM（Model-View-ViewModel）                   |
+
 
 ---
 
