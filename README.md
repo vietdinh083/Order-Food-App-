@@ -29,7 +29,7 @@ Kotlin と Firebase を使用して開発されており、**リアルタイム�
 | 開発環境    | Android Studio 2025.1.3 (Koala Feature Drop) |
 | データベース  | Firebase Realtime Database                   |
 | 認証      | Firebase Authentication                      |
-| ストレージ   | Firebase Storage                             |
+| ストレージ   | Firebase Storage     , Room Database                      |
 | AI連携    | Google Gemini API                            |
 
 
